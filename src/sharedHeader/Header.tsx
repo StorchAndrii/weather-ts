@@ -1,15 +1,15 @@
 import React from "react";
 import Select from "react-select";
 import s from "./Header.module.scss";
-import { GlobalSvgSelector } from "../assets/images/icons/global/GlobalSvgSelector";
+import { GlobalSvgSelector } from "../assets/icons/global/GlobalSvgSelector";
 
 interface Props {}
 
 export const Header = (props: Props) => {
   const options = [
     { value: "city-1", label: "Kyiv" },
-    { value: "sity-2", label: "Odessa" },
-    { value: "sity-3", label: "Lviv" },
+    { value: "city-2", label: "Odessa" },
+    { value: "city-3", label: "Lviv" },
   ];
 
   const colourStyles = {
