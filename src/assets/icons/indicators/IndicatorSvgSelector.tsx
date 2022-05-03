@@ -1,5 +1,3 @@
-import React from "react";
-
 interface Props {
   id: string;
 }
@@ -193,5 +191,4 @@ export const IndicatorSvgSelector = ({ id }: Props) => {
     default:
       return null;
   }
-  return <div></div>;
 };
