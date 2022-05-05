@@ -1,7 +1,7 @@
 import React from "react";
 import Select from "react-select";
 import s from "./Header.module.scss";
-import { GlobalSvgSelector } from "../assets/icons/global/GlobalSvgSelector";
+import { GlobalSvgSelector } from "../../assets/icons/global/GlobalSvgSelector";
 
 interface Props {}
 

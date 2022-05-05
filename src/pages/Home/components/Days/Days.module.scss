@@ -9,7 +9,8 @@
   font-weight: 400;
   font-size: 18px;
   line-height: 22px;
-  margin: 50px 0 10px 0;
+  margin-bottom: 10px;
+  cursor: pointer;
 
   .wrapper {
     display: flex;
@@ -17,14 +18,25 @@
       margin-right: 15px;
     }
   }
-  .items {
+  .item,
+  .cancel {
     max-height: 35px;
     font-size: 18px;
-    display: block;
+    color: $lite-color;
     padding: 10px 20px;
     box-shadow: $box-shadow;
     border-radius: 5px;
-    background-color: #fff;
+    background-color: $lite-background;
+    margin-right: 15px;
+  }
+  .cancel {
+    margin-right: 0;
+  }
+  .item {
+    &.active {
+      background-color: $primary-color;
+      color: #fff;
+    }
   }
 }
 
@@ -35,30 +47,35 @@
   padding: 20px;
   box-shadow: $box-shadow;
   border-radius: 0 0 $border-radius $border-radius;
-  background-color: #fff;
+  background-color: $lite-background;
 }
 
 .card {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  box-shadow: $box-shadow;
-  border-radius: $border-radius;
-  max-width: 149px;
-  width: 100%;
+  border-radius: 10px;
+  width: 149px;
   height: 200px;
-  background-color: $lite-background;
-  padding-left: 10px;
+  background-color: rgba(71, 147, 255, 0.2);
+  padding: 10px;
+  transition: 0.3ms;
+  cursor: pointer;
   .day_card,
   .temp_day {
+    margin-bottom: 7px;
     font-weight: 500;
     font-size: 18px;
-    line-height: 22px;
   }
   .day_info,
   .temp_night,
   .info {
     font-size: 13px;
     color: $base-color;
+    margin-bottom: 12px;
+  }
+
+  &:hover {
+    box-shadow: 0 3px 20px rgba(147, 144, 144, 0.28);
   }
 }

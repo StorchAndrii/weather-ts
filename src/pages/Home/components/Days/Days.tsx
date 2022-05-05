@@ -74,13 +74,13 @@ export const Days = () => {
     },
   ];
   return (
-    <div>
+    <>
       <Tabs />
       <div className={s.card_day}>
         {days.map((day: Day) => (
           <Card key={day.day_info} day={day} />
         ))}
       </div>
-    </div>
+    </>
   );
 };
