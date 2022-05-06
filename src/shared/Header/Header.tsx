@@ -5,7 +5,7 @@ import { GlobalSvgSelector } from "../../assets/icons/global/GlobalSvgSelector";
 
 interface Props {}
 
-export const Header = (props: Props) => {
+export const Header = () => {
   const options = [
     { value: "city-1", label: "Kyiv" },
     { value: "city-2", label: "Odessa" },
@@ -15,11 +15,15 @@ export const Header = (props: Props) => {
   const colourStyles = {
     control: (styles: any) => ({
       ...styles,
-      backgroundColor: "rgba(71, 147, 255, 0.2)",
+      backgroundColor: 0 ? "#4f4f4f" : "rgba(71, 147, 255, 0.2)",
       width: "194px",
       height: "37px",
       borderRadius: "10px",
       zIndex: 100,
+    }),
+    singleValue: (styles: any) => ({
+      ...styles,
+      color: 0 ? "#fff" : "#000",
     }),
   };
 
