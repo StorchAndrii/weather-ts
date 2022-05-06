@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Select from "react-select";
 import s from "./Header.module.scss";
 import { GlobalSvgSelector } from "../../assets/icons/global/GlobalSvgSelector";
@@ -12,10 +12,12 @@ export const Header = () => {
     { value: "city-3", label: "Lviv" },
   ];
 
+  const [theme, setTheme] = useState("light");
+
   const colourStyles = {
     control: (styles: any) => ({
       ...styles,
-      backgroundColor: 0 ? "#4f4f4f" : "rgba(71, 147, 255, 0.2)",
+      backgroundColor: theme === "dark" ? "#4f4f4f" : "rgba(71, 147, 255, 0.2)",
       width: "194px",
       height: "37px",
       borderRadius: "10px",
@@ -23,9 +25,30 @@ export const Header = () => {
     }),
     singleValue: (styles: any) => ({
       ...styles,
-      color: 0 ? "#fff" : "#000",
+      color: theme === "dark" ? "#fff" : "#000",
     }),
   };
+  function changeTheme() {
+    setTheme(theme === "light" ? "dark" : "light");
+  }
+  useEffect(() => {
+    const root = document.querySelector(":root") as HTMLElement;
+
+    const components = [
+      "body-background",
+      "components-background",
+      "card-background",
+      "card-shadow",
+      "text-color",
+    ];
+
+    components.forEach((components) => {
+      root.style.setProperty(
+        `--${components}-default`,
+        `var(--${components}-${theme})`
+      );
+    });
+  }, [theme]);
 
   return (
     <header className={s.header}>
@@ -36,7 +59,7 @@ export const Header = () => {
         <div className={s.title}>React weather</div>
       </div>
       <div className={s.wrapper}>
-        <div className={s.change_theme}>
+        <div className={s.change_theme} onClick={changeTheme}>
           <GlobalSvgSelector id={"change_theme"} />
         </div>
         <Select
