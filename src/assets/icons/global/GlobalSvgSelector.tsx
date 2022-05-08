@@ -90,8 +90,8 @@ export const GlobalSvgSelector = ({ id }: Props) => {
               y2="87.2546"
               gradientUnits="userSpaceOnUse"
             >
-              <stop stop-color="#FFC227" />
-              <stop offset="1" stop-color="#FFB300" />
+              <stop stopColor="#FFC227" />
+              <stop offset="1" stopColor="#FFB300" />
             </linearGradient>
           </defs>
         </svg>
@@ -133,5 +133,4 @@ export const GlobalSvgSelector = ({ id }: Props) => {
     default:
       return null;
   }
-  return <div></div>;
 };

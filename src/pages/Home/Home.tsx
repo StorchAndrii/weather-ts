@@ -20,7 +20,7 @@ export const Home = () => {
   return (
     <div>
       <div className={s.wrapper}>
-        <ThisDay weather={weather} />
+        {!!weather[0] && <ThisDay weather={weather[0]} />}
         <ThisDayInfo />
       </div>
       <Days />

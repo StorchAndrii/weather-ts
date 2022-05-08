@@ -3,7 +3,7 @@ import { Weather } from "../types/types";
 import { AxiosResponse } from "axios";
 
 type CurrentWeather = {
-  weather: Weather;
+  weather: Weather[];
   isLoading: boolean;
   response: Response;
 };
@@ -14,11 +14,7 @@ type Response = {
 };
 
 const initialState: CurrentWeather = {
-  weather: {
-    main: {
-      temp: 0,
-    },
-  },
+  weather: [] as Weather[],
   isLoading: false,
   response: {
     status: 0,
@@ -35,10 +31,10 @@ export const currentWeatherSlice = createSlice({
     },
     fetchCurrentWeatherSuccess(
       state,
-      action: PayloadAction<AxiosResponse<Weather>>
+      action: PayloadAction<AxiosResponse<{ list: Weather[] }>>
     ) {
       state.isLoading = false;
-      state.weather = action.payload.data;
+      state.weather = action.payload.data.list;
 
       state.response = {
         status: action.payload.status,
@@ -47,7 +43,7 @@ export const currentWeatherSlice = createSlice({
     },
     fetchCurrentWeatherError(
       state,
-      action: PayloadAction<AxiosResponse<Weather>>
+      action: PayloadAction<AxiosResponse<{ list: Weather[] }>>
     ) {
       state.isLoading = false;
 

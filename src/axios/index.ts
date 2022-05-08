@@ -10,7 +10,8 @@ api.interceptors.request.use((config) => {
     "&units=metric" +
     `&appid=` +
     process.env.REACT_APP_API_KEY +
-    `&lang=ru`;
+    `&lang=ru` +
+    `exclude=hourly`;
   return config;
 });
 
